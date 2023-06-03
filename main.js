@@ -1,7 +1,7 @@
 import "./style.css";
 import * as THREE from "three";
 import WebGL from 'three/addons/capabilities/WebGL.js';
-//import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+// import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
 const scene = new THREE.Scene();
 
@@ -29,7 +29,7 @@ const torus = new THREE.Mesh(geometria, material);
 
 scene.add(torus);
 
-const pontoLuz = new THREE.PointLight(0xffffff);
+const pontoLuz = new THREE.PointLight(0xffffff, 0.1, 100);
 pontoLuz.position.set(20, 20, 20);
 
 const luzAmbiente = new THREE.AmbientLight(0xffffff);
@@ -58,7 +58,7 @@ Array(1000).fill().forEach(addEstrelas);
 const espacoTextura = new THREE.TextureLoader().load("espaco.jpg");
 scene.background = espacoTextura;
 
-const agsTextura = new THREE.TextureLoader().load("ags.png");
+const agsTextura = new THREE.TextureLoader().load("ags.jpg");
 const ags = new THREE.Mesh(
   new THREE.BoxGeometry(3, 3, 3),
   new THREE.MeshBasicMaterial({
@@ -111,7 +111,7 @@ function animacao() {
 
   lua.rotation.x += 0.005;
 
-  //controles.update();
+  // controles.update();
   renderer.render(scene, camera);
 }
 
